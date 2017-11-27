@@ -82,27 +82,134 @@ for i = 1:NumStates
     elseif(s == 2) %ending quiet zone
         
         %to be filled
+        if(c != patternLen)
+            c_next = c+1;
+            s_next = s;
+            m_next = m;
+            
+            nextStateIx = StatesInv(c_next,s_next,m_next);
+            A(nextStateIx,i) = 1;
         
     elseif(s== 3) %starting guard
         
         %to be filled
+        if(c == patternLen)
+            c_next = 1;
+            m_next = 1;
+            for ss in range(6, 16) % the next state can be anyone of the left digits
+                s_next = ss;
+                
+                nextStateIx = StatesInv(c_next,s_next,m_next);
+                A(nextStateIx,i) = (1/10);
+            end
+        else
+            c_next = c+1
+            s_next = s;
+            m_next = m;
+            
+            nextStateIx = StatesInv(c_next,s_next,m_next);
+            A(nextStateIx,i) = 1;
+            
+        end
+
         
     elseif(s== 4) %ending guard
         
         %to be filled
+        if(c == patternLen)
+            c_next = 1;
+            s_next = 2;
+            m_next = 1;
+        else
+            c_next = c+1
+            s_next = s;
+            m_next = m;
+        end
+
+        nextStateIx = StatesInv(c_next,s_next,m_next);
+        A(nextStateIx,i) = 1;
+
         
     elseif(s== 5) %middle guard
         
         %to be filled
+        if(c == patternLen)
+            c_next = 1;
+            m_next = 1;
+            for ss in range(16,26)
+                s_next = ss;
+            
+                nextStateIx = StatesInv(c_next, s_next, m_next)
+                A(nextStateIx, i) = (1/10);
+            end
+        else
+            c_next = c+1;
+            s_next = s;
+            m_next = m;
+            
+            nextStateIx = StatesInv(c_next, s_next, m_next)
+            A(nextStateIx, i) = 1;
+        end
+
+            
         
     elseif(s>= 6 && s<=15) %left symbols
         
         %to be filled
+        if(c == patternLen)
+            c_next = 1;
+            if(m == 6)
+                s_next = 5;
+                m_next = 1;
+
+                nextStateIx = StatesInv(c_next, s_next, m_next)
+                A(nextStateIx, i) = 1
+            else
+                for ss in range(6, 16)
+                    s_next = ss;
+                    m_next = m+1;
+
+                    nextStateIx = StatesInv(c_next, s_next, m_next)
+                    A(nextStateIx,i) = (1/10)
+                end
+            end
+        else
+            c_next = c+1;
+            s_next = s;
+            m_next = m;
+
+            nextStateIx = StatesInv(c_next, s_next, m_next)
+            A(nextStateIx, i) = 1;
+        end
             
     elseif(s>= 16 && s<=25) %right symbols
         
         %to be filled
-        
+        if(c == patternLen)
+            c_next = 1;
+            if(m == 6)
+                s_next = 4;
+                m_next = 1;
+
+                nextStateIx = StatesInv(c_next, s_next, m_next)
+                A(nextStateIx, i) = 1
+            else
+                for ss in range(6, 16)
+                    s_next = ss;
+                    m_next = m+1;
+
+                    nextStateIx = StatesInv(c_next, s_next, m_next)
+                    A(nextStateIx,i) = (1/10)
+                end
+            end
+        else
+            c_next = c+1;
+            s_next = s;
+            m_next = m;
+
+            nextStateIx = StatesInv(c_next, s_next, m_next)
+            A(nextStateIx, i) = 1;
+        end
     else
         error('Unknown State!');
     end
