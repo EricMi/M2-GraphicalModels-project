@@ -1,6 +1,6 @@
 ## Part2: Compute the inital probability
 
-p_init = zeros(NumStates)
+p_init = np.zeros(NumStates)
 
 # to be filled
 
