@@ -16,5 +16,6 @@ for t in range(T-1:-1:-1):
 # d_smoothing: smoothing distribution
 d_smoothing = np.zeros((NumStates, T))
 for t in range(T):
-    d_smoothing = np.exp(log_alpha[:, t] + log_beta_postdict[:, t])
+    gamma = np.exp(log_alpha[:, t] + log_beta_postdict[:, t])
+    d_smoothing = gamma / np.sum(gamma)
 
