@@ -19,12 +19,10 @@ code.append(chksum)
 stripes = patterns[0] + patterns[0]    # initial white space
 stripes = stripes + patterns[2]    # initial guard
 for i in range(6):
-    tempStripe = patterns[code[i] + 5]    # get the code for the corresponding left digit
-    stripes = stripes + tempStripe
+    stripes = stripes + patterns[code[i] + 5]    # get the code for the corresponding left digit
 stripes = stripes + patterns[4]    # middle guard
 for i in range(6,12):
-    tempStripe = patterns[code[i] + 15]    # get the code for the corresponding right digit
-    stripes = stripes + tempStripe
+    stripes = stripes + patterns[code[i] + 15]    # get the code for the corresponding right digit
 stripes = stripes + patterns[3]    # end guard
 stripes = stripes + patterns[1] + patterns[1]
 len(stripes)
@@ -39,7 +37,7 @@ obs[obs>255] = 255
 
 # generate the image
 plt.figure()
-bc_image = 255 - np.tile(obs, (100,1))
+bc_image = 255 - np.tile(obs, (50,1))
 plt.axis("off")
 plt.imshow(bc_image, cmap='gray',vmin=0,vmax=255)
 # cmap = 'gray'  : 0-black   1-white
