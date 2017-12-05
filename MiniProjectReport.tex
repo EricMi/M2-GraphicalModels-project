@@ -247,6 +247,7 @@ The computation of the smoothing distribution of $s_{n}$, $c_{n}$ and $m_{n}$ ar
 	\\
 	
 	\textbf{Solutions:} \\
+	Please refer to file "template$\_$code.ipynb" "Viterbi algorithm".\\
 \end{homeworkExercise}
 
 \pagebreak
@@ -256,6 +257,59 @@ The computation of the smoothing distribution of $s_{n}$, $c_{n}$ and $m_{n}$ ar
 	\\
 	
 	\textbf{Solutions:} \\
+	In this question, we tested the program with observation noise 20 and 50. Set $\mu_{0} = 255$, $\mu_{1} = 0$. and $\sigma_{0}^{2} = \sigma_{1}^{2} = 1$.\\
+
+With obs\_noise = 20, we generated the following barcode:\\
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n20_bar}
+\end{center}
+\end{figure}
+
+The filtering distribution, smoothing distribution and the most-likely path are shown below:
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n20_filtering}
+\end{center}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n20_smoothing}
+\end{center}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n20_mlp}
+\end{center}
+\end{figure}
+
+With obs\_noise = 50:
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n50_bar}
+\end{center}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n50_filtering}
+\end{center}
+
+\end{figure}\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n50_smoothing}
+\end{center}
+\end{figure}
+
+\begin{figure}[!htbp]
+\begin{center}
+\includegraphics[width=8cm]{n50_mlp}
+\end{center}
+\end{figure}
+
+When the noise is increased, in both filtering and smoothing distribution, the result becomes more "ambiguous". In each state, a specific result is got "later" than the previous case with a smaller noise.\\
 \end{homeworkExercise}
 
 

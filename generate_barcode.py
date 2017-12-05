@@ -29,7 +29,7 @@ stripes = stripes + patterns[1] + patterns[1]
 len(stripes)
 
 # Generate the scanline
-obs_noise = 50    # you can play with 'obs_noise'
+obs_noise = 20    # you can play with 'obs_noise'
 # obs is the observed scanline (x_n in the document)
 obs = 255 * np.asarray(stripes)
 obs = obs + obs_noise * np.random.randn(obs.size)
