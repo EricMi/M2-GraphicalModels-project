@@ -7,7 +7,8 @@ from getPatternsUPCA import getPatternsUPCA
 patterns = getPatternsUPCA()
 
 # the digits that will be encoded in the barcode
-code = [0,1,2,3,4,5,6,7,8,9,0]
+# code = [0,1,2,3,4,5,6,7,8,9,0]
+code = np.random.randint(9, size=(11)).tolist()
 
 # Checksum computation
 chksum = (10 - (3*sum(code[0::2])+sum(code[1::2]))%10) % 10
