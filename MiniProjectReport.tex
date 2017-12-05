@@ -80,7 +80,7 @@
 %
 
 \newcommand{\hmwkTitle}{Mini Project}
-\newcommand{\hmwkDueDate}{December 3, 2017}
+\newcommand{\hmwkDueDate}{December 8, 2017}
 \newcommand{\hmwkClass}{Introduction to Graphical Models}
 \newcommand{\hmwkClassTime}{}
 \newcommand{\hmwkClassInstructor}{Taught by Assisitant Professor Umut Simsekli}
@@ -217,7 +217,13 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 	\\
 	
 	\textbf{Solutions:} \\
-	Please refer to file "Part4.py".
+	The filtering distribution $p(\Psi_{n} | x_{1:n})$ can be got from the Bayesian rule:
+$$p(\Psi_{n} | x_{1:n}) = \frac{p(\Psi_{n}, x_{1:n})}{p(x_{1:n})}$$
+where $p(\Psi_{n}, x_{1:n})$ is the message $\alpha_{n|n}(\Psi_{n})$ which can be got by forward recursion. Since $x_{1:n}$ is our observation, $p(x_{1:n})$ is therefore a constant. So $p(\Psi_{n} | x_{1:n})$ is the normalization of $p(\Psi_{n}, x_{1:n})$.\\
+
+To compute the marginals $p(s_{n}|x_{1:n})$, $p(c_{n}|x_{1:n})$ and $p(m_{n}|x_{1:n})$, since they are not independent, we need to sum up all $p(\Psi_{n}|x_{1:n})$ with the same $s_{n}$ for computing $p(s_{n}|x_{1:n})$, and the same process for $p(c_{n}|x_{1:n})$ and $p(m_{n}|x_{1:n})$.\\
+
+	Please refer to file "template$\_$code.ipynb" part 4.
 \end{homeworkExercise}
 
 \begin{homeworkExercise}
@@ -225,7 +231,13 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 	\\
 	
 	\textbf{Solutions:} \\
-	Please refer to file "Part5.py".
+	Similar with the previous question, the smoothing distribution $p(\Psi_{n} | x_{1:N})$ can be got from:
+$$p(\Psi_{n} | x_{1:N}) = \frac{p(\Psi_{n}, x_{1:N})}{p(x_{1:N})} \propto p(\Psi_{n}, x_{1:N})$$
+by message $\beta_{n|n+1}(\Psi_{n}) \alpha_{n|n}(\Psi_{n})$ via Forward-Backward recursion.\\
+
+The computation of the smoothing distribution of $s_{n}$, $c_{n}$ and $m_{n}$ are also the sum of $p(\Psi_{n} | x_{1:N})$ with the same $s_{n}$, $c_{n}$ and $m_{n}$ respectively.\\
+
+	Please refer to file "template$\_$code.ipynb" part 4.
 \end{homeworkExercise}
 
 \pagebreak
