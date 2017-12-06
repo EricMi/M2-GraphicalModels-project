@@ -140,7 +140,7 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 
 
 \begin{homeworkExercise}
-    Directed graphical model
+    \textbf{Draw the directed graphical model for the described model.}
     \\
     
     \textbf{Solutions:} \\
@@ -155,7 +155,7 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 \pagebreak
 
 \begin{homeworkExercise}
-	Transition Matrix
+	\textbf{Construct the transition matrix.}
 	\\
 	
 	\textbf{Solutions:} \\
@@ -187,12 +187,12 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 \pagebreak
 
 \begin{homeworkExercise}
-	Simulation of HMM
+	\textbf{Simulate the HMM and visualize the simulated data.}
 	\\
 	
 	\textbf{Solutions:} \\
 	The general idea to simulate the HMM model is: for each states $j \in \{1,2, ... , (S\times M\times C)\}$, we generate a random number $r$ according to a uniform distribution in the interval $[0, 1]$. Then we find the state $k$ such that $\sum_{i=1}^{k}A(i,j) < r$ and $\sum_{i=1}^{k+1}A(i,j) >= r$. Then we will transfer from state $j$ to state $i$. \\
-	For the code, please look at file $template_code.ipynb$. The barcode simulated is :
+	For the code, please look at file $template\_code.ipynb$. The barcode simulated is :
 	\begin{figure}[h]
     		\includegraphics[width = 9cm]{Q3}
 		\centering
@@ -204,13 +204,14 @@ This project is done in group of three, with group members: Pengfei MI, Rui SONG
 \pagebreak
 
 \begin{homeworkExercise}
-	Fill code part 1, 2, and 3
+	\textbf{Fill code part 1, 2, and 3}
 	\\
 	
 	\textbf{Solutions:} \\
-	Please refer to file "template$\_$code.ipynb".
+	Please refer to file $template\_code.ipynb$.
 \end{homeworkExercise}
 
+\pagebreak
 
 \begin{homeworkExercise}
 	Compute the filtering distribution and marginals
@@ -223,11 +224,13 @@ where $p(\Psi_{n}, x_{1:n})$ is the message $\alpha_{n|n}(\Psi_{n})$ which can b
 
 To compute the marginals $p(s_{n}|x_{1:n})$, $p(c_{n}|x_{1:n})$ and $p(m_{n}|x_{1:n})$, since they are not independent, we need to sum up all $p(\Psi_{n}|x_{1:n})$ with the same $s_{n}$ for computing $p(s_{n}|x_{1:n})$, and the same process for $p(c_{n}|x_{1:n})$ and $p(m_{n}|x_{1:n})$.\\
 
-	Please refer to file "template$\_$code.ipynb" part 4.
+	Please refer to file $template\_code.ipynb$ part 4.
 \end{homeworkExercise}
 
+\pagebreak
+
 \begin{homeworkExercise}
-	Compute the smoothing distribution and marginals
+	\textbf{Compute the smoothing distribution and marginals.}
 	\\
 	
 	\textbf{Solutions:} \\
@@ -237,23 +240,25 @@ by message $\beta_{n|n+1}(\Psi_{n}) \alpha_{n|n}(\Psi_{n})$ via Forward-Backward
 
 The computation of the smoothing distribution of $s_{n}$, $c_{n}$ and $m_{n}$ are also the sum of $p(\Psi_{n} | x_{1:N})$ with the same $s_{n}$, $c_{n}$ and $m_{n}$ respectively.\\
 
-	Please refer to file "template$\_$code.ipynb" part 4.
+	Please refer to file $template\_code.ipynb$ part 5.
 \end{homeworkExercise}
 
 \pagebreak
 
 \begin{homeworkExercise}
-	Viterbi algorithm
+	\textbf{Compute the most-likely path by using the Viterbi algorithm.}
 	\\
 	
 	\textbf{Solutions:} \\
-	Please refer to file "template$\_$code.ipynb" "Viterbi algorithm".\\
+	We apply the Viterbi algorithm in backward pass. \\
+	That is, for $t \in \{1, 2, ..., T - 1\}$, when we compute $\beta_{t|t} (x_t)$ using $\beta_{t|t+1} (x_t)$, instead of using the sum of terms of all $x_{t+1}$, we keep only the maximum term. At the same time, we also record the argmax in a matrix. After we get the argmax of $x_1$, we generate the most likely path by the argmax matrix.\\
+	Please refer to file $template\_code.ipynb$  "Viterbi algorithm" part.\\
 \end{homeworkExercise}
 
 \pagebreak
 
 \begin{homeworkExercise}
-	Ran algorithms on different random barcodes
+	\textbf{Run algorithms on different random barcodes.}
 	\\
 	
 	\textbf{Solutions:} \\
@@ -285,27 +290,27 @@ The filtering distribution, smoothing distribution and the most-likely path are 
 \end{center}
 \end{figure}
 
-With obs\_noise = 50:
+With obs\_noise = 80:
 \begin{figure}[!htbp]
 \begin{center}
-\includegraphics[width=8cm]{n50_bar}
+\includegraphics[width=8cm]{n80_bar}
 \end{center}
 \end{figure}
 
 \begin{figure}[!htbp]
 \begin{center}
-\includegraphics[width=8cm]{n50_filtering}
+\includegraphics[width=8cm]{n80_filtering}
 \end{center}
 
 \end{figure}\begin{figure}[!htbp]
 \begin{center}
-\includegraphics[width=8cm]{n50_smoothing}
+\includegraphics[width=8cm]{n80_smoothing}
 \end{center}
 \end{figure}
 
 \begin{figure}[!htbp]
 \begin{center}
-\includegraphics[width=8cm]{n50_mlp}
+\includegraphics[width=8cm]{n80_mlp}
 \end{center}
 \end{figure}
 
