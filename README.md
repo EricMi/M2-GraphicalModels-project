@@ -1,2 +1,5 @@
 # M2-GraphicalModels-project
-This is the repository for the project of the course "Introduction to Graphical Models".
+
+This is an implementation of Hidden Markov Model and the Viterbi algorithm to decode the scanline of a UPC-A barcode.
+
+For implementation details, please refer the .pdf file and iPython notebook.
